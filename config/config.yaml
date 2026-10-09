@@ -1,0 +1,9 @@
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  chunks_file: data/processed/chunks.jsonl
+
+chunking:
+  chunk_size: 200     # words per chunk
+  overlap: 40         # words shared between neighbouring chunks
+  min_chunk_words: 30 # drop tiny leftovers
