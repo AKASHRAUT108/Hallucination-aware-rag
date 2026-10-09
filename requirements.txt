@@ -2,7 +2,11 @@
 pyyaml>=6.0
 pypdf>=4.0
 pytest>=8.0
+# Stage 3
+numpy>=1.24
+faiss-cpu>=1.8
+sentence-transformers>=3.0
 # Added in later stages:
-# sentence-transformers, faiss-cpu, transformers, torch   (stage 3-6)
-# scikit-learn, pandas, matplotlib                         (stage 8)
-# streamlit                                                (stage 9)
+# transformers, torch                  (stage 5-6, comes with sentence-transformers)
+# scikit-learn, pandas, matplotlib     (stage 8)
+# streamlit                            (stage 9)

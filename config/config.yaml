@@ -2,8 +2,14 @@ paths:
   raw_dir: data/raw
   processed_dir: data/processed
   chunks_file: data/processed/chunks.jsonl
+  index_file: data/processed/index.faiss
 
 chunking:
   chunk_size: 200     # words per chunk
   overlap: 40         # words shared between neighbouring chunks
   min_chunk_words: 30 # drop tiny leftovers
+
+retrieval:
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  batch_size: 32
+  top_k: 5            # passages returned by the retriever
