@@ -35,18 +35,13 @@ pipeline:
     - "can't answer"
     - "not mentioned"
 
-generation:
-  backend: hf_causal                  # hf_causal | hf_seq2seq | anthropic
-  model: Qwen/Qwen2.5-1.5B-Instruct   # lighter option: backend hf_seq2seq + model google/flan-t5-base
-  anthropic_model: claude-haiku-5-5   # only used when backend is anthropic
-  max_new_tokens: 128
-  max_passages: 3                     # passages shown to the generator
-
-pipeline:
-  abstain_message: "I can't answer this reliably from the available documents."
-  refusal_phrases:
-    - "i don't know"
-    - "i do not know"
-    - "cannot answer"
-    - "can't answer"
-    - "not mentioned"
+verification:
+  nli_model: cross-encoder/nli-deberta-v3-small
+  batch_size: 16
+  citation_threshold: 0.5
+  weights:
+    retrieval: 0.2
+    entailment: 0.5
+    citation: 0.3
+  entailment_aggregation: mean
+  confidence_threshold: 0.6
