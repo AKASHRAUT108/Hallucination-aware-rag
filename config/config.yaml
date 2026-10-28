@@ -18,3 +18,35 @@ reranking:
   model: cross-encoder/ms-marco-MiniLM-L-6-v2
   fetch_k: 20         # candidates pulled from FAISS before reranking
   top_n: 5            # passages kept after reranking
+
+generation:
+  backend: hf_causal                  # hf_causal | hf_seq2seq | anthropic
+  model: Qwen/Qwen2.5-1.5B-Instruct   # lighter option: backend hf_seq2seq + model google/flan-t5-base
+  anthropic_model: claude-haiku-5-5   # only used when backend is anthropic
+  max_new_tokens: 128
+  max_passages: 3                     # passages shown to the generator
+
+pipeline:
+  abstain_message: "I can't answer this reliably from the available documents."
+  refusal_phrases:
+    - "i don't know"
+    - "i do not know"
+    - "cannot answer"
+    - "can't answer"
+    - "not mentioned"
+
+generation:
+  backend: hf_causal                  # hf_causal | hf_seq2seq | anthropic
+  model: Qwen/Qwen2.5-1.5B-Instruct   # lighter option: backend hf_seq2seq + model google/flan-t5-base
+  anthropic_model: claude-haiku-5-5   # only used when backend is anthropic
+  max_new_tokens: 128
+  max_passages: 3                     # passages shown to the generator
+
+pipeline:
+  abstain_message: "I can't answer this reliably from the available documents."
+  refusal_phrases:
+    - "i don't know"
+    - "i do not know"
+    - "cannot answer"
+    - "can't answer"
+    - "not mentioned"
