@@ -45,3 +45,12 @@ verification:
     citation: 0.3
   entailment_aggregation: mean
   confidence_threshold: 0.6
+
+evaluation:
+  eval_file: data/eval/eval.jsonl
+  results_dir: results
+  nli_model: cross-encoder/nli-roberta-base
+  unsupported_threshold: 0.5
+  sweep_start: 0.0
+  sweep_stop: 1.0
+  sweep_step: 0.05

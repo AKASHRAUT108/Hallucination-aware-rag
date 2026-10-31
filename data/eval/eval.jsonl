@@ -1,0 +1,20 @@
+{"id": "q01", "question": "What is the minimum attendance required to sit the end-semester examination?", "answers": ["75 percent"], "answerable": true}
+{"id": "q02", "question": "How many times can condonation of attendance be granted during the degree?", "answers": ["twice", "two times"], "answerable": true}
+{"id": "q03", "question": "What is the fee for attendance condonation per course?", "answers": ["500 rupees"], "answerable": true}
+{"id": "q04", "question": "What grade is given for marks between 80 and 89 percent?", "answers": ["A+"], "answerable": true}
+{"id": "q05", "question": "What minimum CGPA is required to progress to the next academic year?", "answers": ["5.0"], "answerable": true}
+{"id": "q06", "question": "How much do internal assessments contribute to the final marks?", "answers": ["40 percent"], "answerable": true}
+{"id": "q07", "question": "When are hall tickets issued?", "answers": ["seven days before the first examination"], "answerable": true}
+{"id": "q08", "question": "How long after result declaration can re-evaluation be requested?", "answers": ["ten days", "10 days"], "answerable": true}
+{"id": "q09", "question": "What is the fee for re-evaluation of an answer script?", "answers": ["1000 rupees per paper", "1000 rupees"], "answerable": true}
+{"id": "q10", "question": "What CGPA is needed for the Merit Scholarship?", "answers": ["9.0 or higher", "9.0"], "answerable": true}
+{"id": "q11", "question": "What is the maximum late fee for delayed tuition payment?", "answers": ["2000 rupees"], "answerable": true}
+{"id": "q12", "question": "What family income limit applies to the Need-Based Grant?", "answers": ["below 4 lakh rupees", "4 lakh rupees"], "answerable": true}
+{"id": "q13", "question": "In how many instalments are tuition fees paid?", "answers": ["two"], "answerable": true}
+{"id": "q14", "question": "How early must students arrive before an examination starts?", "answers": ["20 minutes"], "answerable": true}
+{"id": "q15", "question": "What is the fee for university library membership?", "answers": [], "answerable": false}
+{"id": "q16", "question": "Does the university offer a placement guarantee?", "answers": [], "answerable": false}
+{"id": "q17", "question": "Who is the current Vice Chancellor of Northfield University?", "answers": [], "answerable": false}
+{"id": "q18", "question": "How many students are admitted to the B.Tech programme each year?", "answers": [], "answerable": false}
+{"id": "q19", "question": "What is the dress code for students on campus?", "answers": [], "answerable": false}
+{"id": "q20", "question": "Is there a scholarship for international students?", "answers": [], "answerable": false}
