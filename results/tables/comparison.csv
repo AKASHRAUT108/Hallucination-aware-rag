@@ -1,0 +1,10 @@
+metric,baseline,proposed_tau_0.6
+coverage,0.0,0.0
+EM,0.0,0.0
+F1,0.0,0.0
+contains_gold,0.0,0.0
+faithfulness,nan,nan
+unsupported_claim_rate,nan,nan
+citation_accuracy,nan,nan
+answered_unanswerable_rate,0.0,0.0
+false_abstention_rate,1.0,1.0
