@@ -1,21 +1,31 @@
 id,question,answerable,answer,generator_refused,confidence,em,f1,contains,faithfulness,unsupported_claim_rate,citation_accuracy
-q01,What is the minimum attendance required to sit the end-semester examination?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q02,How many times can condonation of attendance be granted during the degree?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q03,What is the fee for attendance condonation per course?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q04,What grade is given for marks between 80 and 89 percent?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q05,What minimum CGPA is required to progress to the next academic year?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q06,How much do internal assessments contribute to the final marks?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q07,When are hall tickets issued?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q08,How long after result declaration can re-evaluation be requested?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q09,What is the fee for re-evaluation of an answer script?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q10,What CGPA is needed for the Merit Scholarship?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q11,What is the maximum late fee for delayed tuition payment?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q12,What family income limit applies to the Need-Based Grant?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q13,In how many instalments are tuition fees paid?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q14,How early must students arrive before an examination starts?,True,I don't know.,True,0.0,0.0,0.0,0.0,,,
+q01,What is the minimum attendance required to sit the end-semester examination?,True,At least 75 percent attendance is required to sit the end-semester examination. [1],False,0.9975494493703856,0.0,0.3076923076923077,1.0,0.9914929347990749,0.0,1.0
+q02,How many times can condonation of attendance be granted during the degree?,True,[1] Condonation can be granted at most twice during the full degree programme.,False,0.9939953659109801,0.0,0.16666666666666669,1.0,0.9933685723371866,0.0,1.0
+q03,What is the fee for attendance condonation per course?,True,The fee for attendance condonation per course is 500 rupees. [1],False,0.9952651235873833,0.0,0.3636363636363636,1.0,0.9816442337167082,0.0,1.0
+q04,What grade is given for marks between 80 and 89 percent?,True,A+ [1],False,0.2818456657866094,1.0,1.0,1.0,0.2622245136046063,1.0,0.0
+q05,What minimum CGPA is required to progress to the next academic year?,True,A minimum Cumulative Grade Point Average of 5.0 is required to progress to the next academic year. [1],False,0.9483801311446609,0.0,0.125,1.0,0.9929377561626341,0.0,1.0
+q06,How much do internal assessments contribute to the final marks?,True,Internal assessments contribute 40 percent of the final marks. [1],False,0.9863472784008576,0.0,0.4,1.0,0.9932943080647785,0.0,1.0
+q07,When are hall tickets issued?,True,Hall tickets are issued through the student portal seven days before the first examination. [1],False,0.9931947681623949,0.0,0.5882352941176471,1.0,0.992615186471059,0.0,1.0
+q08,How long after result declaration can re-evaluation be requested?,True,Ten days [2].,False,0.21462905494653753,1.0,1.0,1.0,0.8423411023573588,0.0,0.0
+q09,What is the fee for re-evaluation of an answer script?,True,The fee for re-evaluation of an answer script is 1000 rupees per paper. [1],False,0.9815885884427296,0.0,0.5333333333333333,1.0,0.9926027317489889,0.0,1.0
+q10,What CGPA is needed for the Merit Scholarship?,True,A student needs a Cumulative Grade Point Average of 9.0 or higher in the previous academic year to receive the Merit Scholarship. [1],False,0.9226436692621485,0.0,0.2857142857142857,1.0,0.9795743282737656,0.0,1.0
+q11,What is the maximum late fee for delayed tuition payment?,True,The maximum late fee for delayed tuition payment is 2000 rupees. [1],False,0.98496283714315,0.0,0.33333333333333337,1.0,0.9799093334082597,0.0,1.0
+q12,What family income limit applies to the Need-Based Grant?,True,The Need-Based Grant is available to students whose annual family income is below 4 lakh rupees. [1],False,0.9727389828317212,0.0,0.4210526315789474,1.0,0.9926415399518363,0.0,1.0
+q13,In how many instalments are tuition fees paid?,True,"Two instalments are paid, the first before the start of the odd semester and the second before the start of the even semester. [1]",False,0.973377515754219,0.0,0.1111111111111111,1.0,0.9931564526914496,0.0,1.0
+q14,How early must students arrive before an examination starts?,True,At least 20 minutes before the start of the paper. [1],False,0.9976322537091211,0.0,0.4,1.0,0.9917800448136449,0.0,1.0
 q15,What is the fee for university library membership?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
 q16,Does the university offer a placement guarantee?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
 q17,Who is the current Vice Chancellor of Northfield University?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
 q18,How many students are admitted to the B.Tech programme each year?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
 q19,What is the dress code for students on campus?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
-q20,Is there a scholarship for international students?,False,I don't know.,True,0.0,0.0,0.0,0.0,,,
+q20,Is there a scholarship for international students?,False,"No, there is no information provided about scholarships specifically for international students. [1]",False,0.003682333993079834,0.0,0.0,0.0,0.006964485566009234,1.0,0.0
+q21,What happens to a student whose attendance is below 65 percent?,True,A student whose attendance falls below 65 percent is not eligible for condonation and must repeat the course in the next academic year. [1],False,0.9971226997165159,0.0,0.18181818181818182,1.0,0.992676860614716,0.0,1.0
+q22,Can a student hold the Merit Scholarship and the Need-Based Grant at the same time?,True,"No, a student cannot hold both the Merit Scholarship and the Need-Based Grant simultaneously. [1]",False,0.21870163643685506,0.0,0.12500000000000003,0.0,0.09458915103317553,1.0,0.0
+q23,Within how many working days must a make-up examination request be made after a medical emergency?,True,Within five working days [1].,False,0.8288707401468907,0.0,0.8571428571428571,1.0,0.9049724334194197,0.0,1.0
+q24,What is the late fee per week for hostel fees?,False,The late fee per week for hostel fees is 200 rupees. [1],False,0.9882429675935236,0.0,0.0,0.0,0.9928550305906018,0.0,1.0
+q25,What is the fee for a make-up examination?,False,The fee for a make-up examination is 1000 rupees per paper. [1],False,0.9153806095229513,0.0,0.0,0.0,0.9899650065223011,0.0,1.0
+q26,What percentage of tuition does the Need-Based Grant cover?,False,The Need-Based Grant covers 50 percent of the annual tuition fee. [1],False,0.9969089507759203,0.0,0.0,0.0,0.9920825149827153,0.0,1.0
+q27,How many weeks of suspension does the Examination Disciplinary Committee impose for unfair means?,False,The Examination Disciplinary Committee imposes a suspension for one or more semesters for unfair means. [1],False,0.9913094242435987,0.0,0.0,0.0,0.972342921122647,0.0,1.0
+q28,What fee applies if attendance condonation is requested a third time?,False,A student below 65 percent attendance is not eligible for condonation and must repeat the course in the next academic year. [1],False,0.974464968709791,0.0,0.0,0.0,0.9932818731734993,0.0,1.0
+q29,What is the minimum attendance needed to apply for condonation in laboratory courses?,False,The minimum attendance needed to apply for condonation in laboratory courses is 65 percent. [1],False,0.20453974044140433,0.0,0.0,0.0,0.4843593817951941,1.0,0.0
+q30,On which date does the odd semester start?,False,The odd semester starts seven days after the issuance of hall tickets.,False,0.02662641318144218,0.0,0.0,0.0,0.03041942829204883,1.0,

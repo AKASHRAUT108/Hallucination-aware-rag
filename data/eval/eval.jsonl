@@ -18,3 +18,13 @@
 {"id": "q18", "question": "How many students are admitted to the B.Tech programme each year?", "answers": [], "answerable": false}
 {"id": "q19", "question": "What is the dress code for students on campus?", "answers": [], "answerable": false}
 {"id": "q20", "question": "Is there a scholarship for international students?", "answers": [], "answerable": false}
+{"id": "q21", "question": "What happens to a student whose attendance is below 65 percent?", "answers": ["repeat the course"], "answerable": true}
+{"id": "q22", "question": "Can a student hold the Merit Scholarship and the Need-Based Grant at the same time?", "answers": ["only one", "one university scholarship at a time"], "answerable": true}
+{"id": "q23", "question": "Within how many working days must a make-up examination request be made after a medical emergency?", "answers": ["five working days", "5 working days"], "answerable": true}
+{"id": "q24", "question": "What is the late fee per week for hostel fees?", "answers": [], "answerable": false}
+{"id": "q25", "question": "What is the fee for a make-up examination?", "answers": [], "answerable": false}
+{"id": "q26", "question": "What percentage of tuition does the Need-Based Grant cover?", "answers": [], "answerable": false}
+{"id": "q27", "question": "How many weeks of suspension does the Examination Disciplinary Committee impose for unfair means?", "answers": [], "answerable": false}
+{"id": "q28", "question": "What fee applies if attendance condonation is requested a third time?", "answers": [], "answerable": false}
+{"id": "q29", "question": "What is the minimum attendance needed to apply for condonation in laboratory courses?", "answers": [], "answerable": false}
+{"id": "q30", "question": "On which date does the odd semester start?", "answers": [], "answerable": false}

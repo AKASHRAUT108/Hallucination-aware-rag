@@ -4,7 +4,7 @@ import re
 import numpy as np
 
 from src.pipeline.hallucination_aware_rag import HallucinationAwareRAG
-from src.verification.citation_checker import check_answer, citation_score
+from src.verification.citation_checker import check_answer, citation_score, clean_claim, is_meta
 from src.verification.confidence import combine, entailment_signal, retrieval_signal
 from src.verification.sentences import split_sentences
 
@@ -116,3 +116,28 @@ def test_windows_do_not_support_a_made_up_claim():
     made_up = check_answer("The cafeteria serves pizza every Friday evening. [1]", LONG_PASSAGE,
                            LongPremiseNLI(), window_sentences=2)
     assert made_up[0].support < 0.3
+
+
+def test_clean_claim_removes_lead_ins_but_keeps_citation_info():
+    assert clean_claim("According to the passage [1], condonation can be granted twice.") == "Condonation can be granted twice."
+    assert clean_claim("Therefore, the correct answer is that a grade of A+ is given.") == "A grade of A+ is given."
+    assert is_meta("This information is provided in Passage [1], which states something.")
+    assert not is_meta("Condonation costs 500 rupees per course [1].")
+
+
+def test_lead_in_is_ignored_for_support_but_citation_is_kept():
+    answer = "According to the passage [1], condonation costs 500 rupees per course."
+    chk = check_answer(answer, PASSAGES, FakeNLI())
+    assert chk[0].cited_ranks == [1] and chk[0].support > 0.9 and not chk[0].citation_inferred
+
+
+def test_meta_sentences_are_not_scored_as_claims():
+    answer = ("Condonation costs 500 rupees per course. "
+              "This information is provided in Passage [1], which states something unrelated and long.")
+    chk = check_answer(answer, PASSAGES, FakeNLI())
+    assert len(chk) == 1 and chk[0].support > 0.9
+
+
+def test_if_everything_is_meta_we_fall_back_instead_of_returning_nothing():
+    chk = check_answer("This information is provided in Passage [1].", PASSAGES, FakeNLI())
+    assert len(chk) == 1

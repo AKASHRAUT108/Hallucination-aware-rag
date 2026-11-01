@@ -11,7 +11,9 @@ from src.utils.helpers import load_config
 
 RULES = (
     "Answer the question using ONLY the numbered passages below. "
-    "After each claim, cite the passage number in square brackets, like [1]. "
+    "Reply in one or two short, direct sentences. Do not quote the passages, and do not use the word "
+    "'passage' in your answer. End each sentence with the number of the passage that supports it, "
+    "in square brackets, like [1]. "
     "If the passages do not contain the answer, reply exactly: I don't know."
 )
 

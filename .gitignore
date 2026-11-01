@@ -22,3 +22,5 @@ __pycache__/
 .env
 
 data/processed/*
+
+results/generation_cache.json

@@ -6,7 +6,7 @@ import numpy as np
 
 from src.evaluation.hallucination_metrics import score_answer
 from src.evaluation.qa_metrics import contains_answer, exact_match, f1_score, normalize
-from src.evaluation.run_eval import answered_mask, collect_rows, summarise, sweep
+from src.evaluation.run_eval import CachedGenerator, answered_mask, collect_rows, summarise, sweep
 from src.pipeline.result import RAGResult
 
 WORDS = re.compile(r"[a-z0-9]+")
@@ -86,3 +86,26 @@ def test_abstaining_on_answerable_scores_zero_and_sweep_is_monotone_in_coverage(
     sw = sweep(rows, 0.0, 1.0, 0.25)
     cov = [s["coverage"] for s in sw]
     assert cov == sorted(cov, reverse=True) and cov[0] == 0.75 and cov[-1] == 0.0
+
+
+class CountingGenerator:
+    backend, model_name, max_passages = "fake", "fake-model", 3
+
+    def __init__(self):
+        self.calls = 0
+
+    def generate(self, question, passages):
+        self.calls += 1
+        return f"answer to {question}"
+
+
+def test_cached_generator_reuses_answers_and_invalidates_on_new_prompt(tmp_path):
+    path = tmp_path / "cache.json"
+    inner = CountingGenerator()
+    cached = CachedGenerator(inner, path)
+    assert cached.generate("q1", PASSAGES) == "answer to q1" and inner.calls == 1
+    assert cached.generate("q1", PASSAGES) == "answer to q1" and inner.calls == 1     # served from cache
+    assert cached.generate("q2", PASSAGES) == "answer to q2" and inner.calls == 2     # different prompt
+    reloaded = CachedGenerator(CountingGenerator(), path)                             # survives a restart
+    reloaded.generate("q1", PASSAGES)
+    assert reloaded.inner.calls == 0

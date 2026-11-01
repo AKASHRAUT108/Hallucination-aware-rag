@@ -1,9 +1,28 @@
 """Sentence-level support and citation checks against the passages the generator saw."""
+import re
+
 import numpy as np
 
 from src.generation.citations import parse_citations, strip_citations
 from src.verification.schemas import SentenceCheck
 from src.verification.sentences import passage_windows, split_sentences
+
+
+_LEAD_IN = re.compile(
+    r"^\s*(?:(?:according to|based on|as per)\s+(?:the\s+)?(?:given\s+)?passages?(?:\s*\[[\d,\s]+\])?"
+    r"|therefore,?\s+the\s+(?:correct\s+)?answer\s+is(?:\s+that)?)\s*,?\s*", re.I)
+_META = re.compile(r"^\s*(?:this|that|the)\s+(?:information|answer|fact|statement)\b.*\b(?:passage|stated|provided|mentioned)\b", re.I)
+
+
+def clean_claim(sentence: str) -> str:
+    """Remove lead-ins such as 'According to the passage [1],' so NLI judges the claim itself."""
+    text = strip_citations(_LEAD_IN.sub("", sentence)).strip()
+    return text[:1].upper() + text[1:] if text else text
+
+
+def is_meta(sentence: str) -> bool:
+    """'This information is provided in Passage [1], ...' talks about the source and makes no factual claim."""
+    return bool(_META.match(strip_citations(sentence)))
 
 
 def check_answer(raw_answer: str, passages: list[dict], nli, window_sentences: int = 2) -> list[SentenceCheck]:
@@ -13,8 +32,10 @@ def check_answer(raw_answer: str, passages: list[dict], nli, window_sentences: i
     If the model cited nothing, the best-supporting passage is attributed instead (citation_inferred=True).
     """
     sentences = split_sentences(raw_answer)
-    clean = [strip_citations(s) for s in sentences]
-    keep = [i for i, c in enumerate(clean) if c]
+    clean = [clean_claim(s) for s in sentences]
+    keep = [i for i, c in enumerate(clean) if c and not is_meta(sentences[i])]
+    if not keep:                                    # never drop everything: fall back to all non-empty sentences
+        keep = [i for i, c in enumerate(clean) if c]
     if not keep or not passages:
         return []
 
