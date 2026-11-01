@@ -164,3 +164,29 @@ GitHub: [AKASHRAUT108](https://github.com/AKASHRAUT108)
 ## License
 
 MIT
+<!-- Paste into README.md. Adjust the stage table to match your own wording. -->
+
+## Quick start
+```powershell
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python -m src.ingestion.build_corpus      # raw documents -> corpus
+python -m src.ingestion.chunker           # corpus -> chunks
+python -m src.retrieval.vector_store --build
+python -m src.pipeline.baseline_rag --query "your question"
+python -m src.pipeline.hallucination_aware_rag --query "your question"
+python -m src.evaluation.run_eval         # baseline vs proposed, writes results/
+streamlit run app/demo.py                 # side-by-side demo
+python -m pytest -q
+```
+
+## Status
+All stages implemented: ingestion, dense retrieval + reranking, generation with citations,
+verification layer (citation check, sentence-level NLI entailment, confidence score), evaluation, demo.
+
+## Results (synthetic 30-question set)
+With the default verifier (`nli-deberta-v3-base`, 1-sentence windows) the share of unanswerable questions that
+received an answer dropped from 7/13 to 3/13, while 3/17 correct answers were withheld.
+Full table, interpretation and limitations: [docs/results.md](docs/results.md).
+The verifier does not catch true facts that answer a different question; see the limitations section.
+
