@@ -45,8 +45,9 @@ pipeline:
     - "not stated"
 
 verification:
-  nli_model: cross-encoder/nli-deberta-v3-small
+  nli_model: cross-encoder/nli-deberta-v3-base
   batch_size: 16
+  window_sentences: 1
   citation_threshold: 0.5
   weights:
     retrieval: 0.2
