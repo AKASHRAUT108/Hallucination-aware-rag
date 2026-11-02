@@ -61,7 +61,11 @@ def collect_rows(rag, eval_nli, data: list[dict], threshold: float = 0.5, window
         row = {"id": item["id"], "question": item["question"], "answerable": bool(item.get("answerable", True)),
                "answer": res.raw_answer, "generator_refused": res.abstained, "confidence": res.confidence or 0.0,
                "em": exact_match(pred, golds), "f1": f1_score(pred, golds), "contains": contains_answer(pred, golds),
-               "faithfulness": None, "unsupported_claim_rate": None, "citation_accuracy": None}
+               "faithfulness": None, "unsupported_claim_rate": None, "citation_accuracy": None,
+               "retrieval_score": None, "entailment_score": None, "citation_score": None}
+        v = res.verification
+        if v:
+            row.update(retrieval_score=v.retrieval_score, entailment_score=v.entailment_score, citation_score=v.citation_score)
         if not res.abstained:
             row.update(score_answer(res.raw_answer, res.passages, eval_nli, threshold, window_sentences))
         rows.append(row)

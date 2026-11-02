@@ -190,3 +190,8 @@ received an answer dropped from 7/13 to 3/13, while 3/17 correct answers were wi
 Full table, interpretation and limitations: [docs/results.md](docs/results.md).
 The verifier does not catch true facts that answer a different question; see the limitations section.
 
+
+## Known limitations
+- Entailment verification does not catch true statements that answer a different question (see `docs/images/demo_limitation.png` and `docs/results.md`).
+- Very short answers such as "A+ [1]" are withheld because NLI cannot judge a fragment.
+- Evaluated on a small synthetic set; re-run on real domain documents before drawing conclusions.
