@@ -47,3 +47,18 @@ Per-question values: `results/tables/per_question_signals.csv`.
 
 - Entailment and citation scores are close to 0 or 1, so confidence barely changes between thresholds 0.25 and 0.9.
 - q25 has the lowest retrieval score among answers that passed (0.59), but correct answers go as low as 0.66 (q10) and 0.77 (q05), and two other leaked answers score 0.88 and 0.97. A retrieval cut-off would catch at most one of three leaks and would be fitted to one example, so none was added.
+
+## Verifier signals (deberta-base, 1-sentence windows)
+Per-question values: `results/tables/per_question_signals.csv`.
+
+| Question | Outcome | Retrieval | Entailment | Citation | Confidence |
+|---|---|---|---|---|---|
+| q25 make-up exam fee | unanswerable, answered | 0.59 | 1.00 | 1.00 | 0.92 |
+| q27 weeks of suspension | unanswerable, answered (true fact, different question) | 0.97 | 0.99 | 1.00 | 0.99 |
+| q28 third condonation fee | unanswerable, answered (true fact, different question) | 0.88 | 1.00 | 1.00 | 0.98 |
+| q04 "A+ [1]" | correct answer withheld (fragment) | 0.99 | 0.07 | 0.00 | 0.23 |
+| q08 "Ten days [2]" | right fact, but the cited passage does not support it | 0.98 | 0.43 | 0.00 | 0.41 |
+| q11 late-fee cap | correct answer withheld (NLI misses the inference) | 0.95 | 0.00 | 0.00 | 0.19 |
+
+- Entailment and citation scores are close to 0 or 1, so confidence barely changes between thresholds 0.25 and 0.9.
+- q25 has the lowest retrieval score among answers that passed (0.59), but correct answers go as low as 0.66 (q10) and 0.77 (q05), and two other leaked answers score 0.88 and 0.97. A retrieval cut-off would catch at most one of three leaks and would be fitted to one example, so none was added.

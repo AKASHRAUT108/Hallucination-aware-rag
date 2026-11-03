@@ -195,3 +195,8 @@ The verifier does not catch true facts that answer a different question; see the
 - Entailment verification does not catch true statements that answer a different question (see `docs/images/demo_limitation.png` and `docs/results.md`).
 - Very short answers such as "A+ [1]" are withheld because NLI cannot judge a fragment.
 - Evaluated on a small synthetic set; re-run on real domain documents before drawing conclusions.
+
+## Known limitations
+- Entailment verification does not catch true statements that answer a different question (see `docs/images/demo_limitation.png` and `docs/results.md`).
+- Very short answers such as "A+ [1]" are withheld because NLI cannot judge a fragment.
+- Evaluated on a small synthetic set; re-run on real domain documents before drawing conclusions.
