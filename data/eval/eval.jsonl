@@ -12,19 +12,19 @@
 {"id": "q12", "question": "What family income limit applies to the Need-Based Grant?", "answers": ["below 4 lakh rupees", "4 lakh rupees"], "answerable": true}
 {"id": "q13", "question": "In how many instalments are tuition fees paid?", "answers": ["two"], "answerable": true}
 {"id": "q14", "question": "How early must students arrive before an examination starts?", "answers": ["20 minutes"], "answerable": true}
-{"id": "q15", "question": "What is the fee for university library membership?", "answers": [], "answerable": false}
-{"id": "q16", "question": "Does the university offer a placement guarantee?", "answers": [], "answerable": false}
-{"id": "q17", "question": "Who is the current Vice Chancellor of Northfield University?", "answers": [], "answerable": false}
-{"id": "q18", "question": "How many students are admitted to the B.Tech programme each year?", "answers": [], "answerable": false}
-{"id": "q19", "question": "What is the dress code for students on campus?", "answers": [], "answerable": false}
-{"id": "q20", "question": "Is there a scholarship for international students?", "answers": [], "answerable": false}
+{"id": "q15", "question": "What is the fee for university library membership?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q16", "question": "Does the university offer a placement guarantee?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q17", "question": "Who is the current Vice Chancellor of Northfield University?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q18", "question": "How many students are admitted to the B.Tech programme each year?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q19", "question": "What is the dress code for students on campus?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q20", "question": "Is there a scholarship for international students?", "answers": [], "answerable": false, "type": "plain"}
 {"id": "q21", "question": "What happens to a student whose attendance is below 65 percent?", "answers": ["repeat the course"], "answerable": true}
 {"id": "q22", "question": "Can a student hold the Merit Scholarship and the Need-Based Grant at the same time?", "answers": ["only one", "one university scholarship at a time"], "answerable": true}
 {"id": "q23", "question": "Within how many working days must a make-up examination request be made after a medical emergency?", "answers": ["five working days", "5 working days"], "answerable": true}
-{"id": "q24", "question": "What is the late fee per week for hostel fees?", "answers": [], "answerable": false}
-{"id": "q25", "question": "What is the fee for a make-up examination?", "answers": [], "answerable": false}
-{"id": "q26", "question": "What percentage of tuition does the Need-Based Grant cover?", "answers": [], "answerable": false}
-{"id": "q27", "question": "How many weeks of suspension does the Examination Disciplinary Committee impose for unfair means?", "answers": [], "answerable": false}
-{"id": "q28", "question": "What fee applies if attendance condonation is requested a third time?", "answers": [], "answerable": false}
-{"id": "q29", "question": "What is the minimum attendance needed to apply for condonation in laboratory courses?", "answers": [], "answerable": false}
-{"id": "q30", "question": "On which date does the odd semester start?", "answers": [], "answerable": false}
+{"id": "q24", "question": "What is the late fee per week for hostel fees?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q25", "question": "What is the fee for a make-up examination?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q26", "question": "What percentage of tuition does the Need-Based Grant cover?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q27", "question": "How many weeks of suspension does the Examination Disciplinary Committee impose for unfair means?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q28", "question": "What fee applies if attendance condonation is requested a third time?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q29", "question": "What is the minimum attendance needed to apply for condonation in laboratory courses?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q30", "question": "On which date does the odd semester start?", "answers": [], "answerable": false, "type": "trap"}

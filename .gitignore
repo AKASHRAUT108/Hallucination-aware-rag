@@ -24,3 +24,6 @@ __pycache__/
 data/processed/*
 
 results/generation_cache.json
+
+data/eval/tune.jsonl
+data/eval/test.jsonl
