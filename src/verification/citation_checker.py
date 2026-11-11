@@ -11,12 +11,22 @@ from src.verification.sentences import passage_windows, split_sentences
 _LEAD_IN = re.compile(
     r"^\s*(?:(?:according to|based on|as per)\s+(?:the\s+)?(?:given\s+)?passages?(?:\s*\[[\d,\s]+\])?"
     r"|therefore,?\s+the\s+(?:correct\s+)?answer\s+is(?:\s+that)?)\s*,?\s*", re.I)
+_LEAD_OUT = re.compile(
+    r"[,;]?\s*(?:according to|based on|as per)\s+(?:the\s+)?(?:given\s+)?passages?\s*(?:\[[\d,\s]+\])?\s*(?=[.!?]?\s*$)", re.I)
+_LEADING_ZEROS = re.compile(r"\b0+(?=\d)")
 _META = re.compile(r"^\s*(?:this|that|the)\s+(?:information|answer|fact|statement)\b.*\b(?:passage|stated|provided|mentioned)\b", re.I)
 
 
+def normalize_numbers(text: str) -> str:
+    """'04 students' -> '4 students'. Documents often zero-pad numbers; NLI models do not treat 04 and 4 alike."""
+    return _LEADING_ZEROS.sub("", text)
+
+
 def clean_claim(sentence: str) -> str:
-    """Remove lead-ins such as 'According to the passage [1],' so NLI judges the claim itself."""
-    text = strip_citations(_LEAD_IN.sub("", sentence)).strip()
+    """Remove 'According to the passage [1],' at the start and ', according to the passage' at the end,
+    so NLI judges the claim itself, and normalise zero-padded numbers."""
+    text = _LEAD_OUT.sub("", _LEAD_IN.sub("", sentence))
+    text = normalize_numbers(strip_citations(text).strip())
     return text[:1].upper() + text[1:] if text else text
 
 
@@ -44,7 +54,7 @@ def check_answer(raw_answer: str, passages: list[dict], nli, window_sentences: i
     windows: list[str] = []
     owner: list[int] = []                       # which passage each window came from
     for j, p in enumerate(passages):
-        w = passage_windows(p["text"], window_sentences) or [p["text"]]
+        w = [normalize_numbers(x) for x in (passage_windows(p["text"], window_sentences) or [p["text"]])]
         windows.extend(w)
         owner.extend([j] * len(w))
     owner_arr = np.array(owner)

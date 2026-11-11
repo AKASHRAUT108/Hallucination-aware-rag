@@ -27,3 +27,5 @@ results/generation_cache.json
 
 data/eval/tune.jsonl
 data/eval/test.jsonl
+
+data/raw/*.pdf

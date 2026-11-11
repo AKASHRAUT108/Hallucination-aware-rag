@@ -109,3 +109,24 @@ def test_cached_generator_reuses_answers_and_invalidates_on_new_prompt(tmp_path)
     reloaded = CachedGenerator(CountingGenerator(), path)                             # survives a restart
     reloaded.generate("q1", PASSAGES)
     assert reloaded.inner.calls == 0
+
+
+def test_rows_record_verifier_signals_when_available():
+    from src.verification.schemas import VerificationResult
+
+    class RAGWithSignals:
+        def diagnose(self, question):
+            ver = VerificationResult([], retrieval_score=0.59, entailment_score=1.0, citation_score=1.0, confidence=0.92)
+            return RAGResult(question, "x", "Condonation costs 500 rupees per course [1].", PASSAGES, [],
+                             abstained=False, confidence=0.92, verification=ver)
+
+    row = collect_rows(RAGWithSignals(), FakeNLI(), DATA[:1], verbose=False)[0]
+    assert (row["retrieval_score"], row["entailment_score"], row["citation_score"]) == (0.59, 1.0, 1.0)
+    refused = collect_rows(FakeRAG(TABLE), FakeNLI(), DATA[3:], verbose=False)[0]
+    assert refused["retrieval_score"] is None
+
+
+def test_zero_padded_numbers_match_in_answer_metrics():
+    assert exact_match("4", ["04"]) == 1.0
+    assert contains_answer("The batch size is 4 students.", ["04 students"]) == 1.0
+    assert normalize("5.0 and 0.5") == "5.0 and 0.5"

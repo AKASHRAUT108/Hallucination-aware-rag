@@ -141,3 +141,33 @@ def test_meta_sentences_are_not_scored_as_claims():
 def test_if_everything_is_meta_we_fall_back_instead_of_returning_nothing():
     chk = check_answer("This information is provided in Passage [1].", PASSAGES, FakeNLI())
     assert len(chk) == 1
+
+
+def test_trailing_lead_out_is_removed_but_citations_still_parsed():
+    from src.verification.citation_checker import clean_claim
+    sentence = "Within a week, starting from the day of absence, according to the passage [1]."
+    assert clean_claim(sentence) == "Within a week, starting from the day of absence."
+    chk = check_answer(sentence, PASSAGES, FakeNLI())
+    assert chk[0].cited_ranks == [1]
+
+
+def test_zero_padded_numbers_are_normalised_for_nli():
+    from src.verification.citation_checker import normalize_numbers
+    assert normalize_numbers("0.5 and 10 and 04 and 007 and 2024") == "0.5 and 10 and 4 and 7 and 2024"
+    padded = [{"rank": 1, "chunk_id": "c", "rerank_prob": 0.9, "text": "Max 04 students per batch."}]
+    chk = check_answer("Max 4 students per batch.", padded, FakeNLI())
+    assert chk[0].support == 1.0
+
+
+def test_pdf_bullet_glyphs_split_list_items_into_separate_sentences():
+    text = "7.6 Rules\uf0b7 Max 04 students per batch.\uf0b7 Changing the company midway is not allowed.\uf0b7 Term will not be granted"
+    assert split_sentences(text) == ["7.6 Rules", "Max 04 students per batch.",
+                                     "Changing the company midway is not allowed.", "Term will not be granted"]
+    assert split_sentences("A • B • C") == ["A", "B", "C"]
+    assert split_sentences("Plain sentence. Another one.") == ["Plain sentence.", "Another one."]
+
+
+def test_bullet_fix_lets_nli_see_the_single_supporting_sentence():
+    from src.verification.sentences import passage_windows
+    chunk = "Max 04 students per batch.\uf0b7 Changing the company midway is not allowed.\uf0b7 Term will not be granted if student fails to have 90% attendance."
+    assert "Term will not be granted if student fails to have 90% attendance." in passage_windows(chunk, 1)

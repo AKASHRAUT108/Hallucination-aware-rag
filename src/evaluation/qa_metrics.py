@@ -8,6 +8,7 @@ _KEEP = set("+%")   # keep these so a grade like "A+" is not reduced to the arti
 
 def normalize(text: str) -> str:
     text = text.lower()
+    text = re.sub(r"\b0+(?=\d)", "", text)                   # 04 -> 4
     text = re.sub(r"(?<=\d)\.(?=\d)", "\x00", text)          # protect decimals such as 5.0
     text = "".join(ch for ch in text if ch not in string.punctuation or ch in _KEEP or ch == "\x00")
     text = text.replace("\x00", ".")

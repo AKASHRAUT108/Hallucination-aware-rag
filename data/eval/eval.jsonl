@@ -1,30 +1,50 @@
-{"id": "q01", "question": "What is the minimum attendance required to sit the end-semester examination?", "answers": ["75 percent"], "answerable": true}
-{"id": "q02", "question": "How many times can condonation of attendance be granted during the degree?", "answers": ["twice", "two times"], "answerable": true}
-{"id": "q03", "question": "What is the fee for attendance condonation per course?", "answers": ["500 rupees"], "answerable": true}
-{"id": "q04", "question": "What grade is given for marks between 80 and 89 percent?", "answers": ["A+"], "answerable": true}
-{"id": "q05", "question": "What minimum CGPA is required to progress to the next academic year?", "answers": ["5.0"], "answerable": true}
-{"id": "q06", "question": "How much do internal assessments contribute to the final marks?", "answers": ["40 percent"], "answerable": true}
-{"id": "q07", "question": "When are hall tickets issued?", "answers": ["seven days before the first examination"], "answerable": true}
-{"id": "q08", "question": "How long after result declaration can re-evaluation be requested?", "answers": ["ten days", "10 days"], "answerable": true}
-{"id": "q09", "question": "What is the fee for re-evaluation of an answer script?", "answers": ["1000 rupees per paper", "1000 rupees"], "answerable": true}
-{"id": "q10", "question": "What CGPA is needed for the Merit Scholarship?", "answers": ["9.0 or higher", "9.0"], "answerable": true}
-{"id": "q11", "question": "What is the maximum late fee for delayed tuition payment?", "answers": ["2000 rupees"], "answerable": true}
-{"id": "q12", "question": "What family income limit applies to the Need-Based Grant?", "answers": ["below 4 lakh rupees", "4 lakh rupees"], "answerable": true}
-{"id": "q13", "question": "In how many instalments are tuition fees paid?", "answers": ["two"], "answerable": true}
-{"id": "q14", "question": "How early must students arrive before an examination starts?", "answers": ["20 minutes"], "answerable": true}
-{"id": "q15", "question": "What is the fee for university library membership?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q16", "question": "Does the university offer a placement guarantee?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q17", "question": "Who is the current Vice Chancellor of Northfield University?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q18", "question": "How many students are admitted to the B.Tech programme each year?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q19", "question": "What is the dress code for students on campus?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q20", "question": "Is there a scholarship for international students?", "answers": [], "answerable": false, "type": "plain"}
-{"id": "q21", "question": "What happens to a student whose attendance is below 65 percent?", "answers": ["repeat the course"], "answerable": true}
-{"id": "q22", "question": "Can a student hold the Merit Scholarship and the Need-Based Grant at the same time?", "answers": ["only one", "one university scholarship at a time"], "answerable": true}
-{"id": "q23", "question": "Within how many working days must a make-up examination request be made after a medical emergency?", "answers": ["five working days", "5 working days"], "answerable": true}
-{"id": "q24", "question": "What is the late fee per week for hostel fees?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q25", "question": "What is the fee for a make-up examination?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q26", "question": "What percentage of tuition does the Need-Based Grant cover?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q27", "question": "How many weeks of suspension does the Examination Disciplinary Committee impose for unfair means?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q28", "question": "What fee applies if attendance condonation is requested a third time?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q29", "question": "What is the minimum attendance needed to apply for condonation in laboratory courses?", "answers": [], "answerable": false, "type": "trap"}
-{"id": "q30", "question": "On which date does the odd semester start?", "answers": [], "answerable": false, "type": "trap"}
+{"id": "q01", "question": "How many weeks does the working duration of each semester last?", "answers": ["21 weeks"], "answerable": true, "section": "1"}
+{"id": "q02", "question": "How many weeks of a semester are devoted to instruction and laboratory work?", "answers": ["14 weeks"], "answerable": true, "section": "2"}
+{"id": "q03", "question": "How many weeks are set aside for the semester-end examinations, including practicals?", "answers": ["04 weeks", "4 weeks"], "answerable": true, "section": "2"}
+{"id": "q04", "question": "During which months does the odd term run?", "answers": ["July to December"], "answerable": true, "section": "3"}
+{"id": "q05", "question": "What minimum attendance may a student keep without producing any proof for absence?", "answers": ["75%"], "answerable": true, "section": "5"}
+{"id": "q06", "question": "Between which two attendance percentages must a student inform the School in advance and seek permission for absence?", "answers": ["75% and 60%"], "answerable": true, "section": "5"}
+{"id": "q07", "question": "Within how long must a student obtain the Dean's consent in case of a medical emergency?", "answers": ["within a week"], "answerable": true, "section": "5"}
+{"id": "q08", "question": "With the Vice Chancellor's consent, what is the lowest attendance percentage that still qualifies a student for the ETE?", "answers": ["60%"], "answerable": true, "section": "5"}
+{"id": "q09", "question": "For which examination is no minimum attendance percentage criterion followed?", "answers": ["CAT"], "answerable": true, "section": "5"}
+{"id": "q10", "question": "How long is each period in the slot-based timetable?", "answers": ["60 minutes"], "answerable": true, "section": "6.3"}
+{"id": "q11", "question": "What are the maximum and minimum credit limits for new course registration in each term?", "answers": ["Maximum 30 and minimum 15"], "answerable": true, "section": "6.8"}
+{"id": "q12", "question": "Within how many instructional days of the start of the term can a student drop a course?", "answers": ["10 instructional days", "ten instructional days"], "answerable": true, "section": "6.9"}
+{"id": "q13", "question": "What is the maximum number of courses that can be withdrawn in a semester?", "answers": ["Maximum two courses", "two courses"], "answerable": true, "section": "6.6"}
+{"id": "q14", "question": "What CGPA must an undergraduate student have to credit a Post Graduate level course?", "answers": ["7.0 or more", "7 or more", "7"], "answerable": true, "section": "6.11"}
+{"id": "q15", "question": "What minimum CGPA is needed to progress from the third year to the final year?", "answers": ["4.5"], "answerable": true, "section": "6.12"}
+{"id": "q16", "question": "What share of the total credits of Semesters I and II is needed to progress from the first to the second year?", "answers": ["60%"], "answerable": true, "section": "6.12"}
+{"id": "q17", "question": "What minimum CGPA is required to complete the Dual Major?", "answers": ["5.25"], "answerable": true, "section": "6.14"}
+{"id": "q18", "question": "What is the maximum number of students per internship batch?", "answers": ["Max 04 students", "04 students", "4"], "answerable": true, "section": "7.6"}
+{"id": "q19", "question": "During an internship, what attendance is needed for the term to be granted?", "answers": ["90%"], "answerable": true, "section": "7.6"}
+{"id": "q20", "question": "What is the maximum number of courses a student may register for in the Summer Term?", "answers": ["maximum four courses", "four courses"], "answerable": true, "section": "9"}
+{"id": "q21", "question": "What fine must be paid on the day of applying for a semester drop?", "answers": ["Rs. 7000"], "answerable": true, "section": "11"}
+{"id": "q22", "question": "What is the maximum share of total credits that can come from NPTEL courses within the first degree?", "answers": ["20%"], "answerable": true, "section": "8"}
+{"id": "q23", "question": "To how many marks are CAT marks converted for the final total?", "answers": ["30 marks"], "answerable": true, "section": "12.9"}
+{"id": "q24", "question": "How long before the End Term Examination must students register for backlog and newly registered courses?", "answers": ["one month"], "answerable": true, "section": "12.4"}
+{"id": "q25", "question": "How many days before the start of the End Term Exams must the question paper be prepared by faculty?", "answers": ["30 days"], "answerable": true, "section": "12.10"}
+{"id": "q26", "question": "Within how many working days after the last examination are results declared?", "answers": ["15 - 20 working days"], "answerable": true, "section": "14"}
+{"id": "q27", "question": "After how many months from the declaration of results are applications for rechecking no longer entertained?", "answers": ["three months"], "answerable": true, "section": "14"}
+{"id": "q28", "question": "What are the minimum passing SGPAs for each semester in UG and PG programs respectively?", "answers": ["5.0 & 6.0"], "answerable": true, "section": "12.17.3"}
+{"id": "q29", "question": "What happens to mobile phones confiscated during an examination?", "answers": ["will not be returned", "not be returned"], "answerable": true, "section": "16.2.2"}
+{"id": "q30", "question": "How much extra time does a blind examinee get when provided with a writer?", "answers": ["one hour"], "answerable": true, "section": "17.3"}
+{"id": "q31", "question": "What is the annual hostel fee?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q32", "question": "What are the opening hours of the university library?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q33", "question": "Who is the current Vice Chancellor of Galgotias University?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q34", "question": "How many students are admitted to the B.Tech programme every year?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q35", "question": "What is the tuition fee for the B.Tech Computer Science programme?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q36", "question": "Does the university run bus services from Delhi?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q37", "question": "Which companies visit the campus for placements?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q38", "question": "What is the phone number of the Controller of Examinations?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q39", "question": "In which year was Galgotias University established?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q40", "question": "What NAAC grade does the university hold?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "q41", "question": "What is the examination fee for one theory paper?", "answers": [], "answerable": false, "type": "trap", "note": "12.7 says fees are notified later; no amount is given"}
+{"id": "q42", "question": "What fine is charged for dropping a course?", "answers": [], "answerable": false, "type": "trap", "note": "A fine exists for a semester drop (Rs. 7000), not for dropping a course"}
+{"id": "q43", "question": "What is the minimum passing SGPA for Ph.D programs?", "answers": [], "answerable": false, "type": "trap", "note": "12.17.3 gives SGPA minimums for UG and PG only"}
+{"id": "q44", "question": "What penalty does a student receive for possessing a mobile phone for the first time?", "answers": [], "answerable": false, "type": "trap", "note": "16.2.2 lists possible penalties but fixes none for this case"}
+{"id": "q45", "question": "What fee must be paid to apply for re-evaluation of an answer script?", "answers": [], "answerable": false, "type": "trap", "note": "Re-evaluation and the 10% change rule are described; no fee is stated"}
+{"id": "q46", "question": "How many hours does the End Term Examination last?", "answers": [], "answerable": false, "type": "trap", "note": "12.10 says duration is assigned by the Dean per template; no fixed hours"}
+{"id": "q47", "question": "What late fee is charged for submitting the online exam form after the deadline?", "answers": [], "answerable": false, "type": "trap", "note": "12.5 requires the form and fees by the calendar dates; no late fee is stated"}
+{"id": "q48", "question": "What cash amount is attached to the Gold Medal?", "answers": [], "answerable": false, "type": "trap", "note": "Toppers Award and Achiever's Award amounts are given; medals have none"}
+{"id": "q49", "question": "What fine applies for registering for courses after the due date?", "answers": [], "answerable": false, "type": "trap", "note": "6.7 requires registration within the due date; no fine is stated"}
+{"id": "q50", "question": "What is the dress code for students on the university campus?", "answers": [], "answerable": false, "type": "trap", "note": "A formal dress code appears only for internships, per company rules"}

@@ -43,6 +43,12 @@ pipeline:
     - "does not specify"
     - "do not specify"
     - "not stated"
+    - "does not provide"
+    - "do not provide"
+    - "does not mention"
+    - "do not mention"
+    - "does not state"
+    - "do not state"
 
 verification:
   nli_model: cross-encoder/nli-deberta-v3-base

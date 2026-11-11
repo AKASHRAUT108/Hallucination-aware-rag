@@ -4,14 +4,19 @@ import re
 from src.generation.citations import strip_citations
 
 _SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"'(\[])")
+# PDF bullets arrive as private-use glyphs (e.g. U+F0B7) or "•". They are not whitespace, so without this the
+# items of a bullet list fuse into one huge "sentence" that NLI models cannot judge.
+_BULLETS = re.compile("[\ue000-\uf8ff\u2022\u2023\u25aa\u25cf\u25e6]+")
 
 
 def split_sentences(text: str) -> list[str]:
-    text = re.sub(r"\s+", " ", text).strip()
-    if not text:
-        return []
+    parts: list[str] = []
+    for segment in _BULLETS.split(text):                  # every bullet item starts a new sentence
+        segment = re.sub(r"\s+", " ", segment).strip()
+        if segment:
+            parts.extend(p.strip() for p in _SPLIT.split(segment))
     out: list[str] = []
-    for part in (p.strip() for p in _SPLIT.split(text)):
+    for part in parts:
         # Models often write "Sentence. [1]". The split leaves "[1]" alone, so glue it back.
         if out and part and not strip_citations(part):
             out[-1] = f"{out[-1]} {part}"

@@ -31,3 +31,15 @@ Report the **test** numbers. Do not change settings after looking at them, and d
 Baseline vs proposed on the test half: unanswerable questions answered, correct answers withheld, coverage,
 `contains_gold`, faithfulness. State the set size, that settings were chosen on the tuning half, and the
 limitations in `docs/results.md`.
+
+## Real corpus: Galgotias University Part B (Examination Rules & Regulations)
+The PDF is not stored in this repo. Download it into `data/raw` and rebuild the index:
+```powershell
+Invoke-WebRequest -Uri "https://galgotiasuniversity.edu.in/frontend/pdf/PART-B-Examination-Rules-Regulations.pdf" -OutFile "data\raw\PART-B-Examination-Rules-Regulations.pdf"
+python -m src.ingestion.build_corpus
+python -m src.ingestion.chunker
+python -m src.retrieval.vector_store --build
+python -m src.evaluation.make_split
+```
+`data/eval/eval.jsonl` holds 50 questions for this document (30 answerable, 10 plain unanswerable, 10 near-miss traps).
+The Northfield demo documents are in `data/demo_raw`.
