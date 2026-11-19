@@ -77,3 +77,24 @@ def test_baseline_passes_only_max_passages_to_generator():
     rag, gen = make("Condonation costs 500 rupees per course [1].", max_passages=2)
     res = rag.answer("How much is condonation?")
     assert [p["rank"] for p in gen.seen] == [1, 2] and len(res.passages) == 2
+
+
+def test_prompt_asks_for_complete_sentences_and_keeps_the_refusal_wording():
+    from src.generation.generator import RULES
+    assert "complete sentences" in RULES and "fragment" in RULES
+    assert "I don't know" in RULES                      # refusal detection depends on this exact wording
+    assert "square brackets" in RULES
+
+
+def test_prompt_style_selects_the_instruction_and_rejects_unknown_styles():
+    import pytest
+    from src.generation.generator import Generator
+    short = build_prompt("Q?", PASSAGES[:1], "short")
+    complete = build_prompt("Q?", PASSAGES[:1], "complete")
+    assert "short, direct sentences" in short and "complete sentences" not in short
+    assert "complete sentences" in complete and "short, direct" not in complete
+    assert build_prompt("Q?", PASSAGES[:1]) == complete              # default style
+    with pytest.raises(ValueError):
+        build_prompt("Q?", PASSAGES[:1], "fancy")
+    assert Generator("hf_causal", "m", prompt_style="short").prompt_style == "short"
+    assert Generator("hf_causal", "m").prompt_style == "complete"

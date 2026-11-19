@@ -36,7 +36,7 @@ class CachedGenerator:
 
     def generate(self, question: str, passages: list[dict]) -> str:
         from src.generation.generator import build_prompt
-        prompt = build_prompt(question, passages[: self.inner.max_passages])
+        prompt = build_prompt(question, passages[: self.inner.max_passages], getattr(self.inner, "prompt_style", "complete"))
         key = hashlib.sha1(f"{self.inner.backend}|{self.inner.model_name}|{prompt}".encode("utf-8")).hexdigest()
         if key not in self.cache:
             self.cache[key] = self.inner.generate(question, passages)
@@ -62,10 +62,10 @@ def collect_rows(rag, eval_nli, data: list[dict], threshold: float = 0.5, window
                "answer": res.raw_answer, "generator_refused": res.abstained, "confidence": res.confidence or 0.0,
                "em": exact_match(pred, golds), "f1": f1_score(pred, golds), "contains": contains_answer(pred, golds),
                "faithfulness": None, "unsupported_claim_rate": None, "citation_accuracy": None,
-               "retrieval_score": None, "entailment_score": None, "citation_score": None}
-        v = res.verification
-        if v:
-            row.update(retrieval_score=v.retrieval_score, entailment_score=v.entailment_score, citation_score=v.citation_score)
+               # raw verifier signals, so combinations can be studied offline without regenerating anything
+               "retrieval_score": v.retrieval_score if (v := res.verification) else None,
+               "entailment_score": v.entailment_score if v else None,
+               "citation_score": v.citation_score if v else None}
         if not res.abstained:
             row.update(score_answer(res.raw_answer, res.passages, eval_nli, threshold, window_sentences))
         rows.append(row)

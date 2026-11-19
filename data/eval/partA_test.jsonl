@@ -1,0 +1,50 @@
+{"id": "p01", "question": "How many weeks does the working duration of each semester last?", "answers": ["21 weeks"], "answerable": true, "section": "9"}
+{"id": "p02", "question": "How long is the break after the first semester?", "answers": ["1 week"], "answerable": true, "section": "9"}
+{"id": "p03", "question": "How long is the vacation after the second semester?", "answers": ["4 weeks"], "answerable": true, "section": "9"}
+{"id": "p04", "question": "How many weeks of a semester are devoted to instruction and laboratory work?", "answers": ["17 weeks"], "answerable": true, "section": "9.1"}
+{"id": "p05", "question": "During which months does the odd term run?", "answers": ["July to December"], "answerable": true, "section": "9.2"}
+{"id": "p06", "question": "During which months does the even term run?", "answers": ["January to May"], "answerable": true, "section": "9.2"}
+{"id": "p07", "question": "What minimum attendance may a student keep without producing any proof for absence?", "answers": ["75%"], "answerable": true, "section": "11"}
+{"id": "p08", "question": "Between which two attendance percentages must a student inform the School in advance and seek permission for absence?", "answers": ["75% and 60%"], "answerable": true, "section": "11"}
+{"id": "p09", "question": "Within how long must a student obtain the Dean's consent in case of a medical exigency?", "answers": ["within a week"], "answerable": true, "section": "11"}
+{"id": "p10", "question": "With the Vice Chancellor's consent, what is the lowest attendance percentage that still qualifies a student for the ETE?", "answers": ["60%"], "answerable": true, "section": "11"}
+{"id": "p11", "question": "What relaxation in attendance can the Vice Chancellor give to eligible students recommended by school deans?", "answers": ["15%"], "answerable": true, "section": "11"}
+{"id": "p12", "question": "For which examination is no minimum attendance percentage criterion followed?", "answers": ["MTE"], "answerable": true, "section": "11"}
+{"id": "p13", "question": "Within how many instructional days after dropping a course must another course be added?", "answers": ["two instructional days"], "answerable": true, "section": "12"}
+{"id": "p14", "question": "What are the maximum and minimum credit limits for new course registration in each term?", "answers": ["Maximum 30 and minimum 15"], "answerable": true, "section": "13"}
+{"id": "p15", "question": "What CGPA must an undergraduate student have to credit a Post Graduate level course?", "answers": ["7 or more"], "answerable": true, "section": "13"}
+{"id": "p16", "question": "How many courses does a Diploma for additional specialization consist of?", "answers": ["8 courses"], "answerable": true, "section": "13"}
+{"id": "p17", "question": "How many courses does a Post-Diploma for additional specialization consist of?", "answers": ["12 courses"], "answerable": true, "section": "13"}
+{"id": "p18", "question": "What minimum attendance makes a student eligible for medals?", "answers": ["60 %", "60%"], "answerable": true, "section": "14.1"}
+{"id": "p19", "question": "At least how many days before the convocation are the medal awards announced?", "answers": ["20 days"], "answerable": true, "section": "14.1"}
+{"id": "p20", "question": "What token amount is given with the Achiever's Award?", "answers": ["11000"], "answerable": true, "section": "14.2"}
+{"id": "p21", "question": "What is the minimum donation for instituting a scholarship?", "answers": ["Rs.2Lacs", "2 Lacs", "Rs. 2 Lacs", "Two Lacs"], "answerable": true, "section": "14.5"}
+{"id": "p22", "question": "What attendance in Campus Recruitment training is mandatory to appear for the placement process?", "answers": ["100%"], "answerable": true, "section": "15"}
+{"id": "p23", "question": "What is the fee for document verification per document?", "answers": ["Rs 500"], "answerable": true, "section": "16"}
+{"id": "p24", "question": "What minimum average CGPA is needed in the Honours courses to receive the Honours award?", "answers": ["7.50"], "answerable": true, "section": "18"}
+{"id": "p25", "question": "After how many days of continuous absence without prior permission can a student's admission be cancelled?", "answers": ["ten days"], "answerable": true, "section": "20"}
+{"id": "p26", "question": "Within how many calendar days must a grievance be filed after the party receives notification of the action?", "answers": ["7 calendar days"], "answerable": true, "section": "22.4"}
+{"id": "p27", "question": "How many calendar days after receipt of the final decision must a student file a petition with the office of the Vice Chancellor?", "answers": ["14 calendar days"], "answerable": true, "section": "22"}
+{"id": "p28", "question": "At what time do classes commence?", "answers": ["08:30 AM"], "answerable": true, "section": "6"}
+{"id": "p29", "question": "What tuition fee waiver do students securing up to the 4000th rank in the JEE receive?", "answers": ["50%"], "answerable": true, "section": "3.1"}
+{"id": "p30", "question": "How many hearings should normally be arranged for a grievance?", "answers": ["5 hearings"], "answerable": true, "section": "22.1"}
+{"id": "p31", "question": "What is the annual hostel fee?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p32", "question": "What are the opening hours of the university library?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p33", "question": "Who is the current Vice Chancellor of Galgotias University?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p34", "question": "What is the phone number of the Registrar's office?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p35", "question": "Does the university run bus services from Delhi?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p36", "question": "What is on the cafeteria menu?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p37", "question": "How many books can a student borrow from the library at a time?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p38", "question": "In which year was Galgotias University established?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p39", "question": "What NAAC grade does the university hold?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p40", "question": "What is the total fee for the B.Tech Computer Science programme?", "answers": [], "answerable": false, "type": "plain"}
+{"id": "p41", "question": "What fee must a rejoining student pay on readmission after being detained?", "answers": [], "answerable": false, "type": "trap", "note": "19 says the prescribed fees are decided by the University; no amount is given"}
+{"id": "p42", "question": "What is the fee for issuing a bonafide certificate?", "answers": [], "answerable": false, "type": "trap", "note": "16 C gives the application format only; fees are stated for other documents"}
+{"id": "p43", "question": "What is the fee for a University leaving certificate?", "answers": [], "answerable": false, "type": "trap", "note": "16 B says fees are refunded as per the rules; no certificate fee is stated"}
+{"id": "p44", "question": "What cash amount is attached to the Silver Medal?", "answers": [], "answerable": false, "type": "trap", "note": "Achiever's and Toppers awards have amounts; medals have none"}
+{"id": "p45", "question": "What minimum attendance percentage is needed to receive On Duty credit?", "answers": [], "answerable": false, "type": "trap", "note": "11 requires prior written application and sanction; no percentage is stated"}
+{"id": "p46", "question": "What specific punishment applies to a student found guilty of ragging?", "answers": [], "answerable": false, "type": "trap", "note": "20 says punishment according to UGC Rules; no specific punishment is stated"}
+{"id": "p47", "question": "What minimum CGPA must a student keep to avoid termination from the program?", "answers": [], "answerable": false, "type": "trap", "note": "21 gives reasons for termination; no CGPA figure appears"}
+{"id": "p48", "question": "What is the maximum number of years allowed to complete the UG programme?", "answers": [], "answerable": false, "type": "trap", "note": "21 refers to the maximum period stipulated for the program; no number is given"}
+{"id": "p49", "question": "What is the maximum number of credits a student may take for Honours courses?", "answers": [], "answerable": false, "type": "trap", "note": "18 says no relaxation in the maximum credits; no number is given"}
+{"id": "p50", "question": "How many total credits does a student need to graduate?", "answers": [], "answerable": false, "type": "trap", "note": "17 requires passing all courses and a minimum CGPA; no credit total is given"}

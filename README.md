@@ -184,12 +184,19 @@ python -m pytest -q
 All stages implemented: ingestion, dense retrieval + reranking, generation with citations,
 verification layer (citation check, sentence-level NLI entailment, confidence score), evaluation, demo.
 
-## Results (synthetic 30-question set)
-With the default verifier (`nli-deberta-v3-base`, 1-sentence windows) the share of unanswerable questions that
-received an answer dropped from 7/13 to 3/13, while 3/17 correct answers were withheld.
-Full table, interpretation and limitations: [docs/results.md](docs/results.md).
-The verifier does not catch true facts that answer a different question; see the limitations section.
+## Results
+Evaluated on 50 questions about one real document (Galgotias University Part B, Examination Rules & Regulations).
+Settings were fixed on the tuning half; the test half (25 questions) was run once.
 
+| | No verifier | With verifier |
+|---|---|---|
+| Unanswerable questions answered | 3 / 10 | 1 / 10 |
+| Correct answers not answered | 0 / 15 | 5 / 15 |
+| Coverage | 0.72 | 0.44 |
+
+The verifier reduced wrong answers to unanswerable questions and withheld a third of the correct ones. The 95% intervals
+overlap, so this is indicative, not conclusive. Full tables, the questions involved and limitations:
+[docs/results_galgotias.md](docs/results_galgotias.md). Development results on a synthetic corpus: [docs/results.md](docs/results.md).
 
 ## Known limitations
 - Entailment verification does not catch true statements that answer a different question (see `docs/images/demo_limitation.png` and `docs/results.md`).

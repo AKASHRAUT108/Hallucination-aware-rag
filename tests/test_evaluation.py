@@ -130,3 +130,20 @@ def test_zero_padded_numbers_match_in_answer_metrics():
     assert exact_match("4", ["04"]) == 1.0
     assert contains_answer("The batch size is 4 students.", ["04 students"]) == 1.0
     assert normalize("5.0 and 0.5") == "5.0 and 0.5"
+
+
+def test_generation_cache_never_mixes_prompt_styles(tmp_path):
+    class StyledGenerator:
+        backend, model_name, max_passages = "fake", "m", 3
+        def __init__(self, style):
+            self.prompt_style, self.calls = style, 0
+        def generate(self, question, passages):
+            self.calls += 1
+            return f"{self.prompt_style} answer"
+    path = tmp_path / "cache.json"
+    short = CachedGenerator(StyledGenerator("short"), path)
+    assert short.generate("q1", PASSAGES) == "short answer"
+    complete = CachedGenerator(StyledGenerator("complete"), path)      # same file, same question, other style
+    assert complete.generate("q1", PASSAGES) == "complete answer" and complete.inner.calls == 1
+    again = CachedGenerator(StyledGenerator("short"), path)
+    assert again.generate("q1", PASSAGES) == "short answer" and again.inner.calls == 0

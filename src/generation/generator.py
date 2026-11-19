@@ -9,7 +9,7 @@ import os
 
 from src.utils.helpers import load_config
 
-RULES = (
+RULES_SHORT = (
     "Answer the question using ONLY the numbered passages below. "
     "Reply in one or two short, direct sentences. Do not quote the passages, and do not use the word "
     "'passage' in your answer. End each sentence with the number of the passage that supports it, "
@@ -17,18 +17,33 @@ RULES = (
     "If the passages do not contain the answer, reply exactly: I don't know."
 )
 
+RULES_COMPLETE = (
+    "Answer the question using ONLY the numbered passages below. "
+    "Write one or two complete sentences that restate what the question asks and then give the answer, "
+    "for example: 'The semester lasts 21 weeks [1].' Never reply with only a number, a phrase or a copied fragment. "
+    "Do not use the word 'passage' in your answer. End each sentence with the number of the passage that "
+    "supports it, in square brackets, like [1]. "
+    "If the passages do not contain the answer, reply exactly: I don't know."
+)
 
-def build_prompt(question: str, passages: list[dict]) -> str:
+STYLES = {"short": RULES_SHORT, "complete": RULES_COMPLETE}
+RULES = RULES_COMPLETE            # kept for backwards compatibility
+
+
+def build_prompt(question: str, passages: list[dict], style: str = "complete") -> str:
+    if style not in STYLES:
+        raise ValueError(f"Unknown generation.prompt_style: {style!r} (use one of {sorted(STYLES)})")
     context = "\n\n".join(f"[{p['rank']}] {p['text']}" for p in passages)
-    return f"{RULES}\n\nPassages:\n{context}\n\nQuestion: {question}\nAnswer:"
+    return f"{STYLES[style]}\n\nPassages:\n{context}\n\nQuestion: {question}\nAnswer:"
 
 
 class Generator:
     def __init__(self, backend: str, model: str, max_new_tokens: int = 128,
-                 max_passages: int = 3, anthropic_model: str = ""):
+                 max_passages: int = 3, anthropic_model: str = "", prompt_style: str = "complete"):
         self.backend, self.model_name = backend, model
         self.max_new_tokens, self.max_passages = max_new_tokens, max_passages
         self.anthropic_model = anthropic_model
+        self.prompt_style = prompt_style
         self._tok = self._model = self._client = None
         self.device = "cpu"
 
@@ -36,10 +51,10 @@ class Generator:
     def from_config(cls) -> "Generator":
         g = load_config()["generation"]
         return cls(g["backend"], g["model"], g["max_new_tokens"], g["max_passages"],
-                   g.get("anthropic_model", ""))
+                   g.get("anthropic_model", ""), g.get("prompt_style", "complete"))
 
     def generate(self, question: str, passages: list[dict]) -> str:
-        prompt = build_prompt(question, passages[: self.max_passages])
+        prompt = build_prompt(question, passages[: self.max_passages], self.prompt_style)
         if self.backend == "hf_causal":
             return self._causal(prompt)
         if self.backend == "hf_seq2seq":

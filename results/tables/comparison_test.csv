@@ -1,0 +1,10 @@
+metric,baseline,proposed_tau_0.6
+coverage,0.72,0.44
+EM,0.2,0.1333
+F1,0.4502,0.3294
+contains_gold,1.0,0.6667
+faithfulness,0.8583,0.956
+unsupported_claim_rate,0.1111,0.0
+citation_accuracy,0.8571,1.0
+answered_unanswerable_rate,0.3,0.1
+false_abstention_rate,0.0,0.3333

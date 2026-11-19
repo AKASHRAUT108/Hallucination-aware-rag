@@ -25,6 +25,7 @@ generation:
   anthropic_model: claude-haiku-5-5   # only used when backend is anthropic
   max_new_tokens: 128
   max_passages: 3                     # passages shown to the generator
+  prompt_style: short
 
 pipeline:
   abstain_message: "I can't answer this reliably from the available documents."
