@@ -50,3 +50,13 @@ def test_load_rows_handles_empty_cells_and_booleans(tmp_path):
                     "confidence": "0.0", "em": "0.0", "f1": "0.0", "contains": "0.0", "faithfulness": "", "unsupported_claim_rate": "", "citation_accuracy": ""})
     r = load_rows(path)[0]
     assert r["answerable"] is False and r["generator_refused"] is True and r["faithfulness"] is None
+
+
+def test_excluding_a_mislabeled_question_changes_counts_and_is_disclosed():
+    from src.evaluation.make_report import drop_questions
+    rows = drop_questions(ROWS, {"q6"})
+    assert len(rows) == 5 and all(r["id"] != "q6" for r in rows)
+    c = counts(rows, 0.6)
+    assert (c["n_unans"], c["prop_leak"]) == (2, 0)
+    text = render_report(rows, [], 0.6, {"generator": "g", "verifier": "v", "window": 1}, excluded={"q6"})
+    assert "Excluded after review: q6" in text

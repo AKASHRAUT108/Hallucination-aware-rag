@@ -94,11 +94,18 @@ def section(title: str, rows: list[dict], tau: float) -> str:
     return "\n".join(out)
 
 
-def render_report(test_rows, tune_rows, tau: float, meta: dict) -> str:
+def drop_questions(rows: list[dict], ids: set[str]) -> list[dict]:
+    return [r for r in rows if r["id"] not in ids]
+
+
+def render_report(test_rows, tune_rows, tau: float, meta: dict, excluded=()) -> str:
     parts = ["# Results on real documents (Galgotias University, Part B: Examination Rules & Regulations)", "",
              f"Generator: `{meta.get('generator', '?')}`. Verifier: `{meta.get('verifier', '?')}`, "
              f"window {meta.get('window', '?')}, confidence threshold {tau}. "
              "Settings were chosen on the tuning half; the test half was run once.", ""]
+    if excluded:
+        parts += [f"**Excluded after review: {', '.join(sorted(excluded))}** (the question label was found to be wrong). "
+                  "Rerun without `--exclude` for the unadjusted numbers.", ""]
     if test_rows:
         parts += [section("Test half (the reported result)", test_rows, tau), ""]
     if tune_rows:
@@ -119,14 +126,17 @@ def main() -> None:
     ap.add_argument("--test", default=None, help="tag of the test run, e.g. test")
     ap.add_argument("--tune", default=None, help="tag of the final tuning run, e.g. tune_v3")
     ap.add_argument("--out", default="docs/results_galgotias.md")
+    ap.add_argument("--exclude", default="", help="comma-separated question ids found to be mislabeled, e.g. q44")
     args = ap.parse_args()
     cfg = load_config()
     tables = ROOT / cfg["evaluation"]["results_dir"] / "tables"
     test_rows = load_rows(tables / f"per_question_{args.test}.csv") if args.test else []
     tune_rows = load_rows(tables / f"per_question_{args.tune}.csv") if args.tune else []
+    excluded = {x.strip() for x in args.exclude.split(",") if x.strip()}
+    test_rows, tune_rows = drop_questions(test_rows, excluded), drop_questions(tune_rows, excluded)
     meta = {"generator": cfg["generation"]["model"], "verifier": cfg["verification"]["nli_model"],
             "window": cfg["verification"].get("window_sentences", 2)}
-    text = render_report(test_rows, tune_rows, cfg["verification"]["confidence_threshold"], meta)
+    text = render_report(test_rows, tune_rows, cfg["verification"]["confidence_threshold"], meta, excluded)
     out = ROOT / args.out
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(text, encoding="utf-8")
