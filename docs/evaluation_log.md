@@ -46,8 +46,21 @@ therefore reported on the held-out document.
 | Coverage | 0.76 | 0.64 |
 | Answer contains gold | 0.67 | 0.67 |
 
-- Short-prompt run on Part A: [pending]
-- Leaked unanswerable questions q33, q41, q42, q46, q50: [pending review of the answer text against the document]
+- Corrected run, short prompt (the setting chosen on the tuning half), threshold 0.6:
+
+| | No verifier | With verifier |
+|---|---|---|
+| Unanswerable questions answered | 12/20 | 6/20 |
+| Correct answers not answered | 0/30 | 6/30 |
+| Coverage | 0.84 | 0.60 |
+| Answer contains gold | 0.70 | 0.63 |
+
+- Review of leaked unanswerable questions. Short prompt, by confidence (not refused, above 0.6): p33, p37, p41, p42, p45, p46.
+  Complete prompt, answer text read: p33 (Vice Chancellor's name) was answered with a bank-draft instruction, p42 (bonafide fee)
+  reused the document-verification fee, p50 (total credits) was answered with the Honours requirements: true statements about
+  other things. p41 and p46 are ambiguous labels: the document says readmission fees are "as decided by University" and ragging
+  draws "punishment according to UGC Rules", with no amount or specific punishment. Adjusted reports exclude p41 and p46
+  (docs/results_partA_*_adjusted.md); the unadjusted numbers are the primary result.
 
 ## Known limitations
 - Two documents from the same university, questions written by the system builder, 10-30 questions per category:
