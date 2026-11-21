@@ -185,18 +185,20 @@ All stages implemented: ingestion, dense retrieval + reranking, generation with 
 verification layer (citation check, sentence-level NLI entailment, confidence score), evaluation, demo.
 
 ## Results
-Evaluated on 50 questions about one real document (Galgotias University Part B, Examination Rules & Regulations).
-Settings were fixed on the tuning half; the test half (25 questions) was run once.
+One configuration (short prompt, DeBERTa-v3-base verifier, 1-sentence windows, threshold 0.6; settings fixed on a tuning
+half of Part B) was run once on two held-out real documents from Galgotias University: Part B (25 test questions)
+and Part A (50 questions).
 
 | | No verifier | With verifier |
 |---|---|---|
-| Unanswerable questions answered | 3 / 10 | 1 / 10 |
-| Correct answers not answered | 0 / 15 | 5 / 15 |
-| Coverage | 0.72 | 0.44 |
+| Unanswerable questions answered | 15 / 30 (95% CI 0.33-0.67) | 7 / 30 (0.12-0.41) |
+| Correct answers not answered | 0 / 45 (0.00-0.08) | 11 / 45 (0.14-0.39) |
 
-The verifier reduced wrong answers to unanswerable questions and withheld a third of the correct ones. The 95% intervals
-overlap, so this is indicative, not conclusive. Full tables, the questions involved and limitations:
-[docs/results_galgotias.md](docs/results_galgotias.md). Development results on a synthetic corpus: [docs/results.md](docs/results.md).
+The verifier roughly halves wrong answers to unanswerable questions and withholds about a quarter of correct ones.
+The cost is clearly established; the benefit is suggestive (the intervals overlap). It does not catch true statements
+that answer a different question. Reports with questions and answers: [docs/results_partA_short.md](docs/results_partA_short.md),
+[docs/results_galgotias.md](docs/results_galgotias.md); a log of what was run: [docs/evaluation_log.md](docs/evaluation_log.md).
+Development results on a synthetic corpus: [docs/results.md](docs/results.md).
 
 ## Known limitations
 - Entailment verification does not catch true statements that answer a different question (see `docs/images/demo_limitation.png` and `docs/results.md`).

@@ -1,5 +1,7 @@
 # Evaluation results
 
+> Development results on a synthetic corpus (used to design the verifier). Results on real documents: see `results_partA_short.md`, `results_galgotias.md` and `evaluation_log.md`.
+
 **Setup.** 30 hand-written questions over 4 synthetic "Northfield University" policy documents:
 17 answerable, 13 unanswerable (some are deliberate near-misses, e.g. a fee that exists for a *different*
 topic). Generator: Qwen2.5-1.5B-Instruct (greedy). Grader NLI: `cross-encoder/nli-roberta-base`, a different
