@@ -21,7 +21,7 @@ Facts only. Fill the bracketed items yourself before citing this in the report.
 | Correct answers not answered | 0/15 | 5/15 |
 | Coverage | 0.72 | 0.44 |
 
-- Review after the run: q44 (mobile-phone penalty) may be mislabeled as unanswerable. [Result of checking the document: ______]
+- Review after the run: q44 (mobile-phone penalty) may be mislabeled as unanswerable. Checked against the PDF: it lists unfair-means offences (including possession of mobile phones) and a set of possible punishments chosen by the committee by severity (zero marks for the component, NE grade with or without the right to withdraw). No penalty is tied to mobile phones specifically or to a first offence, so the label stands as unanswerable; the question is ambiguous because the model's answer (an NE grade) is one of the listed options.
 
 ## Prompt experiment (tuning half only)
 | | Old prompt, no verifier | Old prompt + verifier (tune_v3) | New prompt, no verifier | New prompt + verifier (tune_v4) |
